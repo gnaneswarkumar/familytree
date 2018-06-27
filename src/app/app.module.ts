@@ -26,6 +26,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
+import { AppBootstrapModule } from './/app-bootstrap.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
   HttpClientModule,
   HttpClientInMemoryWebApiModule,
 	AppRoutingModule,
-  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
+  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+  AppBootstrapModule
   ],
   providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
