@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 	title:string = '';
-  constructor() { }
+	isLoggedIn$: Observable<boolean>;
+
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
 	this.title = 'Family Tree';
+	this.isLoggedIn$ = this.userService.isLoggedIn;
   }
-
+  onLogout(){
+  	this.userService.logoutUser();
+  }
 }

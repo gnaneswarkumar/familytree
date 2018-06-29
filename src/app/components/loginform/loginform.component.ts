@@ -19,7 +19,7 @@ export class LoginformComponent implements OnInit {
 	e.preventDefault();
 	var username = e.target.elements[0].value;
 	var password = e.target.elements[1].value;
-	console.log(username, password);
+	//console.log(username, password);
 	if(username=='admin' && password=='admin'){
 		this.user.setUserLoggedIn();
 		this.router.navigate(['dashboard']);

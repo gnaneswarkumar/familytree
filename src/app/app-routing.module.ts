@@ -10,11 +10,7 @@ import {HeroDetailComponent} from './components/hero-detail/hero-detail.componen
 import {AuthGuard} from './auth.guard';
 
 const routes:Routes = [
-	{
-		path: '',
-		redirectTo:'/login',
-		pathMatch: 'full'
-	},
+
 	{
 		path: 'login',
 		component: LoginformComponent
@@ -38,6 +34,11 @@ const routes:Routes = [
 		path: 'heroes',
 		canActivate: [AuthGuard],
 		component: HeroesComponent
+	},
+	{
+		path: '',
+		redirectTo:'/login',
+		pathMatch: 'full'
 	}
 ]
 
