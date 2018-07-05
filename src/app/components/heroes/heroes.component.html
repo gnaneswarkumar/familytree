@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="isAdminUser$ | async">
   <label>Hero name:
     <input #heroName />
   </label>
@@ -15,8 +15,7 @@
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
-    <button class="delete" title="delete hero"
-    (click)="delete(hero)">x</button>
+    <button *ngIf="isAdminUser$ | async" class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
 
@@ -27,4 +26,3 @@
 </ul>
 
 <app-hero-detail [hero]="selectedHero"></app-hero-detail-->
-

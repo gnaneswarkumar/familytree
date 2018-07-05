@@ -1,15 +1,22 @@
-
-
 <div *ngIf="hero">
 
   <h2>{{ hero.name | uppercase }} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
-  <div>
+  <div *ngIf="isAdminUser$ | async">
     <label>name:
       <input [(ngModel)]="hero.name" placeholder="name"/>
-	  <strong>{{hero.name}}</strong>
+
     </label>
   </div>
+  <div>
+    <strong>{{hero.name}}</strong>
+  </div>
+  <div *ngIf="hero.sons && hero.sons.length">
+    <h2>Sons</h2>
+    <ul>
+      <li *ngFor="let son of hero.sons">{{son.name}}</li>
+    </ul>
+  </div>
   <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <button *ngIf="isAdminUser$ | async " (click)="save()">save</button>
 </div>

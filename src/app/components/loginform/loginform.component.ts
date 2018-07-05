@@ -14,7 +14,7 @@ export class LoginformComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   loginUser(e){
 	e.preventDefault();
 	var username = e.target.elements[0].value;
@@ -22,8 +22,13 @@ export class LoginformComponent implements OnInit {
 	//console.log(username, password);
 	if(username=='admin' && password=='admin'){
 		this.user.setUserLoggedIn();
+    this.user.setUserRole('admin');
 		this.router.navigate(['dashboard']);
-	}
+	} else if(username=='user' && password=='user'){
+    this.user.setUserLoggedIn();
+    this.user.setUserRole('user');
+    this.router.navigate(['dashboard']);
+  }
 	return false;
   }
 

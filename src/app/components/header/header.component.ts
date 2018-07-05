@@ -11,12 +11,14 @@ import {UserService} from '../../services/user.service';
 export class HeaderComponent implements OnInit {
 	title:string = '';
 	isLoggedIn$: Observable<boolean>;
+  isAdminUser$: Observable<boolean>;
 
   constructor(private userService:UserService) { }
 
   ngOnInit() {
-	this.title = 'Family Tree';
-	this.isLoggedIn$ = this.userService.isLoggedIn;
+  	this.title = 'Family Tree';
+  	this.isLoggedIn$ = this.userService.isLoggedIn;
+    this.isAdminUser$ = this.userService.isUserAdmin;
   }
   onLogout(){
   	this.userService.logoutUser();
