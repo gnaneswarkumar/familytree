@@ -23,7 +23,8 @@ const routes:Routes = [
 	{
 		path: 'detail/:id',
 		canActivate: [AuthGuard],
-		component:HeroDetailComponent
+		component:HeroDetailComponent,
+		runGuardsAndResolvers: `always`,
 	},
 	{
 		path: 'user',
@@ -47,6 +48,6 @@ const routes:Routes = [
   exports: [
     RouterModule
   ],
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, {onSameUrlNavigation: `reload`}) ],
 })
 export class AppRoutingModule { }

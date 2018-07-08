@@ -8,6 +8,26 @@
   </button>
 </div>
 
+<h3>My Family Members</h3>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr class="table-active bg-warning">
+        <th>Id</th>
+        <th>Name</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let hero of heroes">
+        <td>{{hero.id}}</td>
+        <td><a routerLink="/detail/{{hero.id}}">{{hero.name}}</a> ({{hero.gender | titlecase }})</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <h2>My Heroes</h2>
 
 <ul class="heroes">

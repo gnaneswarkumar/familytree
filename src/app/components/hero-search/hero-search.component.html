@@ -1,11 +1,16 @@
 <div id="search-component">
-  <h4>Hero Search</h4>
-
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-
+  <h4> Search Family Members</h4>
+  <div class="form-group col-md-7">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Search</div>
+      </div>
+    <input class="form-control" #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+    </div>
+  </div>
   <ul class="search-result">
     <li *ngFor="let hero of heroes$ | async" >
-      <a routerLink="/detail/{{hero.id}}">
+      <a routerLink="/detail/{{hero.id}}" class="d-block p-2 bg-primary text-white">
         {{hero.name}}
       </a>
     </li>
