@@ -50,7 +50,9 @@
         <div class="card" *ngIf="hero.father.length">
           <div class="card-header">Father</div>
           <div class="card-body text-center">
-            <p class="card-text">Some text inside the fourth card</p>
+            <p class="card-text">
+              <a routerLink="/detail/{{hero.father[0].id}}">{{hero.father[0].name}}</a>
+            </p>
           </div>
         </div>
         </div>

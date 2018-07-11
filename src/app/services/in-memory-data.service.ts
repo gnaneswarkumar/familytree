@@ -26,7 +26,7 @@ export class InMemoryDataService implements InMemoryDbService {
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:1, name:'Tippa Raju'}]
       },
       {
         id: 3,
@@ -34,11 +34,11 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:26,name:'Kesavappa'}],
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:1, name:'Tippa Raju'}]
       },
       {
         id: 4,
@@ -50,7 +50,7 @@ export class InMemoryDataService implements InMemoryDbService {
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:2, name:'Pedda Chennappa'}]
       },
       {
         id: 5,
@@ -62,7 +62,7 @@ export class InMemoryDataService implements InMemoryDbService {
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:4, name:'Linga Raju'}]
       },
       {
         id: 6,
@@ -70,11 +70,11 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:27,name:' Venkata Kesavappa'}],
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:5, name:'Papa Raju'}]
       },
       {
         id: 7,
@@ -82,11 +82,11 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:8,name:' Venkata Ramanna'},{id:16,name:' Venkata Narayanappa'}],
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:2, name:'Pedda Chennappa'}]
       },
       {
         id: 8,
@@ -94,11 +94,11 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:9,name:'Venkata Rayappa'},{id:10,name:'Dasapa'}],
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:7,name:'Dassappa'}]
       },
       {
         id: 9,
@@ -118,7 +118,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:11, name:'Dasapa'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -130,7 +130,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:12, name:'Surya Narayana Rao (Adopted Son)'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -142,7 +142,11 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[
+          {id:13, name:'Sambasiva Rao'},
+          {id:14, name:'Sudhakar'},
+          {id:15, name:'Ramachandra Rao'}
+      ],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -153,7 +157,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:28, name:'Eswar Praveen'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -165,7 +169,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:29, name:'Surya Prakash'},{id:30, name:'Sarat Chandra'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -177,7 +181,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:31, name:'Praneeth'},{id:32, name:'Anoop'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -189,7 +193,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:17, name:'Venkata Narasappa'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -201,7 +205,11 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:18, name:'Venkata Rayappa'},
+              {id:33, name: 'Krishtrao'},
+              {id:34, name: 'Surya Narayana Rao (Adoption to Dasappa)'},
+              {id:35, name: 'Ramappa'},
+              {id:36, name: 'Srinivasa Rao'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -213,7 +221,9 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:19, name:'Venkata Subba Rao'},
+              {id:25, name:'Venkata Narasappa'},
+              {id:37, name: 'Ramadas'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -225,7 +235,8 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[ {id:20, name: 'Krishna Murthy'},
+                {id:23, name: 'Ramachandra Rao'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -237,7 +248,8 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:21, name:'Sree Nath'},
+              {id:22, name: 'Sureendra Nath'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -261,7 +273,8 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:38, name:'Sanketh'},
+              {id:39, name:'Ruthvic'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -273,7 +286,7 @@ export class InMemoryDataService implements InMemoryDbService {
         dob:'',
         dod:'',
         gender:'male',
-        sons:[],
+        sons:[{id:24, name:'Sasidhar'}],
         wiwes:[],
         daughters:[],
         mother:[],
@@ -313,7 +326,7 @@ export class InMemoryDataService implements InMemoryDbService {
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[]
+        father:[{id:3, name: 'Chinna Chennappa'}]
       },
       {
         id:27,
@@ -325,7 +338,7 @@ export class InMemoryDataService implements InMemoryDbService {
         wiwes:[],
         daughters:[],
         mother:[],
-        father:[],
+        father:[{id:6, name:'Venkata Narasappa'}],
         description: 'Adoptation to Venkata Rayappa'
       },
       {
@@ -383,6 +396,97 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id:32,
         name: ' Anoop',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: ''
+      },
+      {
+        id:33,
+        name: ' Krishtrao',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: ''
+      },
+      {
+        id:34,
+        name: 'Surya Narayana Rao',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: 'Adoption to Dasappa'
+      },
+      {
+        id:35,
+        name: ' Ramappa',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: ''
+      },
+      {
+        id:36,
+        name: ' Srinivasa Rao',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: ''
+      },
+      {
+        id:37,
+        name: ' Ramadas ',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: ''
+      },
+      {
+        id:38,
+        name: ' Sanketh ',
+        dob:'',
+        dod:'',
+        gender:'male',
+        sons:[],
+        wiwes:[],
+        daughters:[],
+        mother:[],
+        father:[],
+        description: ''
+      },
+      {
+        id:39,
+        name: ' Ruthvic ',
         dob:'',
         dod:'',
         gender:'male',
