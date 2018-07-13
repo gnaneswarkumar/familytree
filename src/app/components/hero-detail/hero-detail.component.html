@@ -1,0 +1,114 @@
+<!--Below first block is just for reference for creating admin section in future-->
+<div *ngIf="hero && isAdminUser$ | async">
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div *ngIf="isAdminUser$ | async">
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+  </div>
+
+  <div>
+    <strong>{{hero.name}}</strong>
+  </div>
+  <div *ngIf="hero.sons && hero.sons.length">
+    <h2>Sons</h2>
+    <ul>
+      <li *ngFor="let son of hero.sons">{{son.name}}</li>
+    </ul>
+  </div>
+  <button *ngIf="isAdminUser$ | async " (click)="save()">save</button>
+</div>
+
+<!--Actual Content-->
+<button (click)="goBack()">go back</button>
+<!--Heror Details -->
+  <div class="row" *ngIf="hero">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">{{ hero.name | uppercase }} Details</div>
+      <img class="card-img-top" [src]="fullImagePath" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">{{ hero.name}}</h4>
+        <p class="card-text">FID: {{hero.id}}</p>
+        <!--a href="#" class="btn btn-primary">See Profile</a-->
+      </div>
+    </div>
+    </div>
+    <!--Hero Parent and wife details -->
+    <div class="col-sm-8">
+      <!--Hero Parent Details -->
+      <h3 *ngIf="hero.mother.length||hero.mother.length">Parents</h3>
+      <div class="card-deck">
+
+        <div class="card" *ngIf="hero.mother.length">
+          <div class="card-header">Mother</div>
+          <div class="card-body text-center">
+            <p class="card-text">Some text inside the third card</p>
+          </div>
+        </div>
+        <div class="card" *ngIf="hero.father.length">
+          <div class="card-header">Father</div>
+          <div class="card-body text-center">
+            <p class="card-text">
+              <a routerLink="/detail/{{hero.father[0].id}}">{{hero.father[0].name}}</a>
+            </p>
+          </div>
+        </div>
+        </div>
+        <br />
+<!--Hero Wife(s) details -->
+      <h3 *ngIf="hero.wiwes.length">{{wifeHusbandText}}</h3>
+      <div class="card-group" *ngIf="hero.wiwes.length">
+        <div class="card">
+          <div class="card-body text-center">
+            <p class="card-text">Some text inside the first card</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body text-center">
+            <p class="card-text">Some text inside the second card</p>
+          </div>
+        </div>
+      </div>
+
+        <br />
+      <!--Hero Son details -->
+            <h3 *ngIf="hero.sons.length">Sons</h3>
+            <div class="card-group" *ngIf="hero.sons.length">
+              <div class="card" *ngFor="let son of hero.sons">
+                <div class="card-body text-center">
+                  <div class="card-text">
+                    <a routerLink="/detail/{{son.id}}">{{son.name}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <br />
+            <!--Hero Son details -->
+                  <h3 *ngIf="hero.daughters.length">Daughters</h3>
+                  <div class="card-group" *ngIf="hero.daughters.length">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <p class="card-text">Some text inside the first card</p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <p class="card-text">Some text inside the second card</p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <p class="card-text">Some text inside the first card</p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <p class="card-text">Some text inside the second card</p>
+                      </div>
+                    </div>
+                  </div>
+
+    </div>
+  </div>

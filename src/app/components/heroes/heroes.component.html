@@ -1,0 +1,48 @@
+<div *ngIf="isAdminUser$ | async">
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+<h3>My Family Members</h3>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover table-striped">
+    <thead>
+      <tr class="table-active bg-warning">
+        <th>Id</th>
+        <th>Name</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let hero of heroes">
+        <td>{{hero.id}}</td>
+        <td><a routerLink="/detail/{{hero.id}}">{{hero.name}}</a> ({{hero.gender | titlecase }})</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>My Heroes</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button *ngIf="isAdminUser$ | async" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<!--ul class="heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail-->
