@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import {UserService} from '../../services/user.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -22,5 +23,8 @@ export class HeaderComponent implements OnInit {
   }
   onLogout(){
   	this.userService.logoutUser();
+  }
+  saveFamilyMember(f:NgForm){
+    console.log(f.value);
   }
 }

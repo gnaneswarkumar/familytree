@@ -27,6 +27,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 import { AppBootstrapModule } from './/app-bootstrap.module';
+import { MemberFormComponent } from './components/member-form/member-form.component';
 
 @NgModule({
   declarations: [
@@ -39,16 +40,17 @@ import { AppBootstrapModule } from './/app-bootstrap.module';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    MemberFormComponent
   ],
   imports: [
     BrowserModule,
 	FormsModule,
 	HttpModule,
   HttpClientModule,
-  HttpClientInMemoryWebApiModule,
+//  HttpClientInMemoryWebApiModule,
 	AppRoutingModule,
-  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+//  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
   AppBootstrapModule
   ],
   providers: [UserService,AuthGuard],

@@ -29,11 +29,11 @@ export class HeroService {
 private heroesUrl = 'api/heroes';  // URL to web api
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
-  
+
   getHeroes(): Observable<Hero[]>{
 		this.messageService.add('HeroService: fetched heroes');
 		 //return of(this.heroes);
-     return this.http.get<Hero[]>(this.heroesUrl)
+     return this.http.get<Hero[]>('http://localhost:8080/heroes')
      .pipe(
       tap(heroes => this.log(`fetched heroes`)),
       catchError(this.handleError('getHeroes', []))
@@ -57,7 +57,7 @@ private heroesUrl = 'api/heroes';  // URL to web api
 
   /** PUT: update the hero on the server */
   updateHero (hero: Hero): Observable<any> {
-    
+
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
@@ -122,13 +122,13 @@ private heroesUrl = 'api/heroes';  // URL to web api
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-   
+
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-   
+
       // TODO: better job of transforming error for user consumption
       this.log('${operation} failed: ${error.message}');
-   
+
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

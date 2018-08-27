@@ -6,7 +6,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink='/dashboard'>Home <span class="sr-only">(current)</span></a>
       </li>
@@ -16,12 +16,18 @@
       <li class="nav-item" *ngIf="isAdminUser$ | async">
         <a class="nav-link" routerLink='/user'>User</a>
       </li>
-      <li class="nav-item" style="cursor: pointer;">
-        <a class="nav-link" (click)="onLogout()">Logout</a>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li *ngIf="isAdminUser$ | async">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addFamilyMemberForm" >Add Member</button>
+      </li>
+      <li class="nav-item" style="cursor: pointer;">
+          <a class="nav-link" (click)="onLogout()">Logout</a>
+        </li>
     </ul>
   </div>
 </nav>
@@ -38,3 +44,4 @@
 </div>
 
 <app-messages *ngIf="isAdminUser$ | async"></app-messages>
+<app-member-form></app-member-form>

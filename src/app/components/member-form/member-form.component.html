@@ -1,0 +1,86 @@
+<!-- Modal -->
+<div id="addFamilyMemberForm" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <h4 class="modal-title">Add Family Member</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        {{diagnostic}}
+      </div>
+      <div class="modal-body">
+        <form #addMemberForm="ngForm">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="member_name">Name:</label>
+                <input type="text" class="form-control" name="member_name" id="member_name" required [(ngModel)]="model.member_name" #member_name="ngModel">
+                <div [hidden]="member_name.valid || member_name.pristine" class="alert alert-danger">
+                  Name is required
+                </div>
+              </div>
+            </div>
+            <div class="col"> 
+              <div class="form-group">
+                <label for="member_gender">Gender:</label>
+                <select class="form-control" name="member_gender" id="member_gender" required [(ngModel)]="model.member_gender">
+                  <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">  
+              <div class="form-group">
+                <label for="member_mother">Mother:</label>
+                <input type="text" class="form-control" name="member_mother" id="member_mother" [(ngModel)]="model.member_mother">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="member_father">Father:</label>
+                <input type="text" class="form-control" name="member_father" id="member_father" [(ngModel)]="model.member_father">
+              </div>
+            </div>
+          </div>        
+          <div class="form-group">
+            <label for="member_wiwes">Wife(s):</label>
+            <input type="text" class="form-control" name="member_wiwes" id="member_wiwes" [(ngModel)]="model.member_wiwes">
+          </div>
+          
+          <div class="form-group">
+            <label for="member_daughters">Daughter(s):</label>
+            <input type="text" class="form-control" name="member_daughters" id="member_daughters" [(ngModel)]="model.member_daughters">
+          </div>
+
+          <div class="form-group">
+            <label for="member_sons">Son(s):</label>
+            <input type="text" class="form-control" name="member_sons" id="member_sons" [(ngModel)]="model.member_sons">
+          </div>
+          <div class="row">
+            <div class="col">
+                <div class="form-group">
+                  <label for="member_dob">DOB:</label>
+                  <input type="text" class="form-control" name="member_dob" id="member_dob" [(ngModel)]="model.member_dob">
+                </div>
+              </div>
+              <div class="col">  
+                <div class="form-group">
+                  <label for="member_dod">DOD:</label>
+                  <input type="text" class="form-control" name="member_dod" id="member_dod" [(ngModel)]="model.member_dod">
+                </div>
+              </div>  
+          </div>      
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="saveFamilyMember(); addMemberForm.reset()" [disabled]="!addMemberForm.form.valid">Save</button>
+      </div>
+    </div>
+
+  </div>
+</div>
