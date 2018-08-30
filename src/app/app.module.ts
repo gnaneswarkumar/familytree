@@ -29,6 +29,12 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
 import { AppBootstrapModule } from './/app-bootstrap.module';
 import { MemberFormComponent } from './components/member-form/member-form.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+import {MatNativeDateModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +57,11 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
 //  HttpClientInMemoryWebApiModule,
 	AppRoutingModule,
 //  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
-  AppBootstrapModule
+  AppBootstrapModule,
+  BrowserAnimationsModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatFormFieldModule
   ],
   providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]

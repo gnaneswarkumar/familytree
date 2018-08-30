@@ -26,7 +26,7 @@
               <div class="form-group">
                 <label for="member_gender">Gender:</label>
                 <select class="form-control" name="member_gender" id="member_gender" required [(ngModel)]="model.member_gender">
-                  <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                  <option *ngFor="let gender of genders" [value]="gender.key">{{gender.value}}</option>
                 </select>
               </div>
             </div>
@@ -35,36 +35,34 @@
             <div class="col">  
               <div class="form-group">
                 <label for="member_mother">Mother:</label>
-                <input type="text" class="form-control" name="member_mother" id="member_mother" [(ngModel)]="model.member_mother">
+                <select class="form-control" name="member_mother" id="member_mother" [(ngModel)]="model.member_mother">
+                  <option *ngFor="let mother of mothersList" [value]="mother.ft_id">{{mother.name}}</option>
+                </select>
               </div>
             </div>
             <div class="col">
               <div class="form-group">
                 <label for="member_father">Father:</label>
-                <input type="text" class="form-control" name="member_father" id="member_father" [(ngModel)]="model.member_father">
+                <select class="form-control" name="member_father" id="member_father" [(ngModel)]="model.member_father">
+                  <option *ngFor="let father of fathersList" [value]="father.ft_id">{{father.name}}</option>
+                </select>
               </div>
             </div>
           </div>        
-          <div class="form-group">
+          <div class="form-group" *ngIf="model.member_gender=='M'">
             <label for="member_wiwes">Wife(s):</label>
             <input type="text" class="form-control" name="member_wiwes" id="member_wiwes" [(ngModel)]="model.member_wiwes">
-          </div>
-          
-          <div class="form-group">
-            <label for="member_daughters">Daughter(s):</label>
-            <input type="text" class="form-control" name="member_daughters" id="member_daughters" [(ngModel)]="model.member_daughters">
-          </div>
-
-          <div class="form-group">
-            <label for="member_sons">Son(s):</label>
-            <input type="text" class="form-control" name="member_sons" id="member_sons" [(ngModel)]="model.member_sons">
           </div>
           <div class="row">
             <div class="col">
                 <div class="form-group">
                   <label for="member_dob">DOB:</label>
                   <input type="text" class="form-control" name="member_dob" id="member_dob" [(ngModel)]="model.member_dob">
+                  
+                 
+
                 </div>
+   
               </div>
               <div class="col">  
                 <div class="form-group">

@@ -10,8 +10,6 @@ export class Member {
         public member_mother? : number,
         public member_father? : number,
         public member_wifes? : string,
-        public member_daughters? : string,
-        public member_sons? : string,
         public member_dob? : string,
         public member_dod? : string
       ){}
