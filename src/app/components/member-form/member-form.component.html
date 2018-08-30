@@ -57,17 +57,25 @@
             <div class="col">
                 <div class="form-group">
                   <label for="member_dob">DOB:</label>
-                  <input type="text" class="form-control" name="member_dob" id="member_dob" [(ngModel)]="model.member_dob">
                   
-                 
+                  
+                  <mat-form-field class="form-control" >
+                    <input name="member_dob" id="member_dob" [(ngModel)]="model.member_dob" matInput [matDatepicker]="picker_dob" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker_dob"></mat-datepicker-toggle>
+                    <mat-datepicker #picker_dob></mat-datepicker>
+                  </mat-form-field>
 
                 </div>
-   
+
               </div>
               <div class="col">  
                 <div class="form-group">
                   <label for="member_dod">DOD:</label>
-                  <input type="text" class="form-control" name="member_dod" id="member_dod" [(ngModel)]="model.member_dod">
+                  <mat-form-field class="form-control" >
+                    <input name="member_dod" id="member_dod" [(ngModel)]="model.member_dod" matInput [matDatepicker]="picker_dod" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker_dod"></mat-datepicker-toggle>
+                    <mat-datepicker #picker_dod></mat-datepicker>
+                  </mat-form-field>
                 </div>
               </div>  
           </div>      

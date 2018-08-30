@@ -34,6 +34,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import {MatNativeDateModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -61,8 +62,10 @@ import {MatFormFieldModule} from '@angular/material';
   BrowserAnimationsModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatInputModule
   ],
+  exports: [MatDatepickerModule],
   providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
 })
