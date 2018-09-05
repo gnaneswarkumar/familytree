@@ -1,20 +1,20 @@
 <!--Below first block is just for reference for creating admin section in future-->
-<div *ngIf="hero && isAdminUser$ | async">
-  <h2>{{ hero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
+<div *ngIf="member && isAdminUser$ | async">
+  <h2>{{ member.member_name | uppercase }} Details</h2>
+  <div><span>id: </span>{{member.member_id}}</div>
   <div *ngIf="isAdminUser$ | async">
     <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
+      <input [(ngModel)]="member.member_name" placeholder="name"/>
     </label>
   </div>
 
   <div>
-    <strong>{{hero.name}}</strong>
+    <strong>{{member.name}}</strong>
   </div>
-  <div *ngIf="hero.sons && hero.sons.length">
+  <div *ngIf="member.member_sons && member.member_sons.length">
     <h2>Sons</h2>
     <ul>
-      <li *ngFor="let son of hero.sons">{{son.name}}</li>
+      <li *ngFor="let son of member.member_sons">{{son.name}}</li>
     </ul>
   </div>
   <button *ngIf="isAdminUser$ | async " (click)="save()">save</button>
@@ -23,14 +23,14 @@
 <!--Actual Content-->
 <button (click)="goBack()">go back</button>
 <!--Heror Details -->
-  <div class="row" *ngIf="hero">
+  <div class="row" *ngIf="member">
     <div class="col-sm-4">
       <div class="card">
-        <div class="card-header">{{ hero.name | uppercase }} Details</div>
+        <div class="card-header">{{ member.member_name | uppercase }} Details</div>
       <img class="card-img-top" [src]="fullImagePath" alt="Card image">
       <div class="card-body">
-        <h4 class="card-title">{{ hero.name}}</h4>
-        <p class="card-text">FID: {{hero.id}}</p>
+        <h4 class="card-title">{{ member.member_name}}</h4>
+        <p class="card-text">FID: {{member.member_id}}</p>
         <!--a href="#" class="btn btn-primary">See Profile</a-->
       </div>
     </div>
@@ -38,77 +38,62 @@
     <!--Hero Parent and wife details -->
     <div class="col-sm-8">
       <!--Hero Parent Details -->
-      <h3 *ngIf="hero.mother.length||hero.mother.length">Parents</h3>
+      <h3 *ngIf="member.member_mother.length||member.member_father.length">Parents</h3>
       <div class="card-deck">
 
-        <div class="card" *ngIf="hero.mother.length">
+        <div class="card" *ngIf="member.member_mother.length">
           <div class="card-header">Mother</div>
           <div class="card-body text-center">
-            <p class="card-text">Some text inside the third card</p>
+            <p class="card-text">
+              <a routerLink="/detail/{{member.member_mother[0].member_id}}">{{member.member_mother[0].member_name}}</a>
+            </p>
           </div>
         </div>
-        <div class="card" *ngIf="hero.father.length">
+        <div class="card" *ngIf="member.member_father.length">
           <div class="card-header">Father</div>
           <div class="card-body text-center">
             <p class="card-text">
-              <a routerLink="/detail/{{hero.father[0].id}}">{{hero.father[0].name}}</a>
+              <a routerLink="/detail/{{member.member_father[0].member_id}}">{{member.member_father[0].member_name}}</a>
             </p>
           </div>
         </div>
         </div>
         <br />
 <!--Hero Wife(s) details -->
-      <h3 *ngIf="hero.wiwes.length">{{wifeHusbandText}}</h3>
-      <div class="card-group" *ngIf="hero.wiwes.length">
-        <div class="card">
+      <h3 *ngIf="member.member_wives.length">{{wifeHusbandText}}</h3>
+      <div class="card-group" *ngIf="member.member_wives.length">
+        <div class="card" *ngFor="let wife of member.member_wives[0]">
           <div class="card-body text-center">
-            <p class="card-text">Some text inside the first card</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body text-center">
-            <p class="card-text">Some text inside the second card</p>
+            <div class="card-text">
+              <a routerLink="/detail/{{wife.member_id}}">{{wife.member_name}}</a>
+            </div>
           </div>
         </div>
       </div>
 
         <br />
       <!--Hero Son details -->
-            <h3 *ngIf="hero.sons.length">Sons</h3>
-            <div class="card-group" *ngIf="hero.sons.length">
-              <div class="card" *ngFor="let son of hero.sons">
+            <h3 *ngIf="member.member_sons.length">Sons</h3>
+            <div class="card-group" *ngIf="member.member_sons.length">
+              <div class="card" *ngFor="let son of member.member_sons[0]">
                 <div class="card-body text-center">
                   <div class="card-text">
-                    <a routerLink="/detail/{{son.id}}">{{son.name}}</a>
+                    <a routerLink="/detail/{{son.member_id}}">{{son.member_name}}</a>
                   </div>
                 </div>
               </div>
             </div>
         <br />
-            <!--Hero Son details -->
-                  <h3 *ngIf="hero.daughters.length">Daughters</h3>
-                  <div class="card-group" *ngIf="hero.daughters.length">
-                    <div class="card">
-                      <div class="card-body text-center">
-                        <p class="card-text">Some text inside the first card</p>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <div class="card-body text-center">
-                        <p class="card-text">Some text inside the second card</p>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <div class="card-body text-center">
-                        <p class="card-text">Some text inside the first card</p>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <div class="card-body text-center">
-                        <p class="card-text">Some text inside the second card</p>
-                      </div>
-                    </div>
-                  </div>
-
+          <!--Hero Son details -->
+          <h3 *ngIf="member.member_daughters.length">Daughters</h3>
+          <div class="card-group" *ngIf="member.member_daughters.length">
+            <div class="card" *ngFor="let daughter of member.member_daughters[0]">
+              <div class="card-body text-center">
+                <div class="card-text">
+                  <a routerLink="/detail/{{daughter.member_id}}">{{daughter.member_name}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
   </div>

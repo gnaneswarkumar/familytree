@@ -13,7 +13,17 @@ import {catchError, map, tap } from 'rxjs/operators';
 export class MemberService {
   Url = '';
   constructor(private http: HttpClient, private messageService: MessageService) { }
+  /**
+   * 
+   * @param id 
+   */
+  getMember(id:number):Observable<Member[]>{
+    this.messageService.add('Members Service: fateching member details');
 
+    return this.http.get<Member[]>('http://localhost:8080/member/'+id).pipe(
+      tap(),catchError(this.handleError('getMember',[]))
+    );
+  }
   /**
    * fetch the list of male members of the family.
    */
@@ -38,7 +48,7 @@ export class MemberService {
   /**
    * @param member 
    */
-  addMember(member){
+  addMember<T>(member){
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8' })
     };
@@ -50,17 +60,33 @@ export class MemberService {
 
     let data = new FormData();
     
+    var member_dob = '';
+    if(member.member_dob!=null)
+    member_dob = new Date(member.member_dob).toDateString();
+    
+    var member_dod = '';
+    if(member.member_dod!=null)
+    member_dod = new Date(member.member_dod).toDateString();
+
     data.append('name',member.member_name);
     data.append('gender',member.member_gender);
     data.append('father',member.member_father);
     data.append('mother',member.member_mother);
+    data.append('wives',member.member_wives);
+    data.append('dob',member_dob);
+    data.append('dod',member_dod);
 
-     this.http.post(this.Url,data).subscribe(res=>{
-       console.log(res);
-     },
-     err => {
+    return this.http.post<T>(this.Url,data);
+
+     /**
+      * Previous inside subscribe
+      * res=>{
+      console.log(res);
+    },
+    err => {
       console.log("Error occured");
-    });
+    }
+      */
 
   }
 

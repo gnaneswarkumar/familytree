@@ -9,7 +9,7 @@ export class Member {
         public member_gender: string,
         public member_mother? : number,
         public member_father? : number,
-        public member_wifes? : string,
+        public member_wives? : string,
         public member_dob? : string,
         public member_dod? : string
       ){}

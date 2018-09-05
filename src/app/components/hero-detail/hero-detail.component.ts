@@ -5,9 +5,11 @@ import { Location } from '@angular/common';
 import { Observable, Subject } from 'rxjs';
 
 import {Hero} from '../../hero';
+import {Member} from '../../classes/member';
 
 import {HeroService} from '../../services/hero.service';
 import {UserService} from '../../services/user.service';
+import { MemberService } from '../../services/member.service';
 
 
 @Component({
@@ -17,7 +19,8 @@ import {UserService} from '../../services/user.service';
 })
 
 export class HeroDetailComponent implements OnInit, OnDestroy {
-	@Input() hero:Hero;
+  @Input() hero:Hero;
+  @Input() member;
 
   fullImagePath:string = 'assets/images/img_avatar3.png';
 
@@ -31,6 +34,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private heroService: HeroService,
+    private memberService: MemberService,
     private userService: UserService,
     private location: Location) {
     // subscribe to the router events - storing the subscription so
@@ -44,7 +48,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() :void{
-  	this.getHero();
+  	//this.getHero();
     this.isAdminUser$ = this.userService.isUserAdmin;
   }
 
@@ -61,19 +65,34 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
       this.navigationSubscription.unsubscribe();
    }
  }
-
+  /**
+   * 
+   */
   getHero():void{
   	const id = +this.route.snapshot.paramMap.get('id');
-  	this.heroService.getHero(id).subscribe(hero=>{
+  	/*this.heroService.getHero(id).subscribe(hero=>{
       this.hero=hero;
       this.wifeHusbandText = (this.hero.gender == 'male') ? 'Wife' : 'Husband';
       console.log(this.hero);
+    });*/
+
+    this.memberService.getMember(id).subscribe(member=>{
+      this.member = member[0];
+      this.wifeHusbandText = (this.member.member_gender == 'M') ? 'Wife' : 'Husband';
+      console.log(this.member);
     });
+
+
   }
+  /**
+   * 
+   */
   goBack(){
   	this.location.back();
   }
-
+  /**
+   * 
+   */
   save(): void {
    this.heroService.updateHero(this.hero)
      .subscribe(() => this.goBack());

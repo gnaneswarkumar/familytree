@@ -3,7 +3,7 @@ import { InMemoryDataService }  from './services/in-memory-data.service'
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -29,12 +29,15 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
 import { AppBootstrapModule } from './/app-bootstrap.module';
 import { MemberFormComponent } from './components/member-form/member-form.component';
 
+/**
+ * https://material.angular.io/
+ */
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-
 import {MatNativeDateModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import {MatInputModule} from '@angular/material';
   ],
   imports: [
     BrowserModule,
-	FormsModule,
+  FormsModule,
+  ReactiveFormsModule,
 	HttpModule,
   HttpClientModule,
 //  HttpClientInMemoryWebApiModule,
@@ -63,9 +67,10 @@ import {MatInputModule} from '@angular/material';
   MatDatepickerModule,
   MatNativeDateModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule
   ],
-  exports: [MatDatepickerModule],
+  exports: [MatDatepickerModule,MatSelectModule],
   providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
 })

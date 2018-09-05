@@ -51,14 +51,19 @@
           </div>        
           <div class="form-group" *ngIf="model.member_gender=='M'">
             <label for="member_wiwes">Wife(s):</label>
-            <input type="text" class="form-control" name="member_wiwes" id="member_wiwes" [(ngModel)]="model.member_wiwes">
+            <mat-form-field class="form-control">
+              <mat-select placeholder="Select" [formControl]="wivesMultiSelect" [(ngModel)]="model.member_wives" multiple>
+                <mat-option *ngFor="let wife of wivesList" [value]="wife.ft_id">{{wife.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
           </div>
           <div class="row">
             <div class="col">
                 <div class="form-group">
                   <label for="member_dob">DOB:</label>
                   
-                  
+                  <!--https://material.angular.io/-->
                   <mat-form-field class="form-control" >
                     <input name="member_dob" id="member_dob" [(ngModel)]="model.member_dob" matInput [matDatepicker]="picker_dob" placeholder="Choose a date">
                     <mat-datepicker-toggle matSuffix [for]="picker_dob"></mat-datepicker-toggle>
@@ -83,7 +88,7 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" id="closeAddFamilyMemberForm" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" (click)="saveFamilyMember(); addMemberForm.reset()" [disabled]="!addMemberForm.form.valid">Save</button>
       </div>
     </div>
