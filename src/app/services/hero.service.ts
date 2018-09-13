@@ -8,6 +8,8 @@ import {MessageService} from './message.service';
 
 import { catchError, map, tap } from 'rxjs/operators';
 
+import {environment} from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +35,7 @@ private heroesUrl = 'api/heroes';  // URL to web api
   getHeroes(): Observable<Hero[]>{
 		this.messageService.add('HeroService: fetched heroes');
 		 //return of(this.heroes);
-     return this.http.get<Hero[]>('http://localhost:8080/members')
+     return this.http.get<Hero[]>(environment.apiUrl+'members')
      .pipe(
       tap(heroes => this.log(`fetched heroes`)),
       catchError(this.handleError('getHeroes', []))

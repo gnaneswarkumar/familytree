@@ -36,7 +36,7 @@
               <div class="form-group">
                 <label for="member_mother">Mother:</label>
                 <select class="form-control" name="member_mother" id="member_mother" [(ngModel)]="model.member_mother">
-                  <option *ngFor="let mother of mothersList" [value]="mother.ft_id">{{mother.name}}</option>
+                  <option *ngFor="let mother of mothersList" [value]="mother.member_id">{{mother.member_name}}</option>
                 </select>
               </div>
             </div>
@@ -44,7 +44,7 @@
               <div class="form-group">
                 <label for="member_father">Father:</label>
                 <select class="form-control" name="member_father" id="member_father" [(ngModel)]="model.member_father">
-                  <option *ngFor="let father of fathersList" [value]="father.ft_id">{{father.name}}</option>
+                  <option *ngFor="let father of fathersList" [value]="father.member_id">{{father.member_name}}</option>
                 </select>
               </div>
             </div>
@@ -53,7 +53,7 @@
             <label for="member_wiwes">Wife(s):</label>
             <mat-form-field class="form-control">
               <mat-select placeholder="Select" [formControl]="wivesMultiSelect" [(ngModel)]="model.member_wives" multiple>
-                <mat-option *ngFor="let wife of wivesList" [value]="wife.ft_id">{{wife.name}}</mat-option>
+                <mat-option *ngFor="let wife of wivesList" [value]="wife.member_id">{{wife.member_name}}</mat-option>
               </mat-select>
             </mat-form-field>
 

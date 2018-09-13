@@ -57,7 +57,7 @@ export class MemberFormComponent implements OnInit {
         if(key=='status'){
           success = result[key];
           if(success=='success'){
-            this.hideAddForm();
+            //this.hideAddForm();
             this.alertSuccess();
           }
         } else if(key=='insert' && success=='success'){
@@ -71,7 +71,7 @@ export class MemberFormComponent implements OnInit {
     * 
     */
    alertSuccess(){
-
+    //@TODO: Show success message to user.
    }
    /**
     * 
@@ -85,9 +85,9 @@ export class MemberFormComponent implements OnInit {
     * @param newMember 
     */
    appendNewMember(newMember){
-    if(newMember.gender=='M'){
+    if(newMember.member_gender=='M'){
       this.fathersList.push(newMember);
-    } else if(newMember.gender=='F'){
+    } else if(newMember.member_gender=='F'){
       this.mothersList.push(newMember);
       this.wivesList.push(newMember);
     }

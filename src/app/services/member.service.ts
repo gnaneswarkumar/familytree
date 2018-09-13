@@ -7,6 +7,8 @@ import {MessageService} from './message.service';
 
 import {catchError, map, tap } from 'rxjs/operators';
 
+import {environment} from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +22,7 @@ export class MemberService {
   getMember(id:number):Observable<Member[]>{
     this.messageService.add('Members Service: fateching member details');
 
-    return this.http.get<Member[]>('http://localhost:8080/member/'+id).pipe(
+    return this.http.get<Member[]>(environment.apiUrl+'member/'+id).pipe(
       tap(),catchError(this.handleError('getMember',[]))
     );
   }
@@ -30,7 +32,7 @@ export class MemberService {
   getMaleMembersList():Observable<Member[]>{
     this.messageService.add('Members Service: fateching male members list');
 
-    return this.http.get<Member[]>('http://localhost:8080/malemembers').pipe(
+    return this.http.get<Member[]>(environment.apiUrl+'malemembers').pipe(
       tap(),catchError(this.handleError('getMembersList',[]))
     );
   }
@@ -40,7 +42,7 @@ export class MemberService {
   getFemaleMembersList():Observable<Member[]>{
     this.messageService.add('Members Service: fateching female members list');
 
-    return this.http.get<Member[]>('http://localhost:8080/femalemembers').pipe(
+    return this.http.get<Member[]>(environment.apiUrl+'femalemembers').pipe(
       tap(),catchError(this.handleError('getFemaleMembersList',[]))
     );
   }
@@ -55,7 +57,7 @@ export class MemberService {
     /**
      * POST Example - https://medium.com/codingthesmartway-com-blog/angular-4-3-httpclient-accessing-rest-web-services-with-angular-2305b8fd654b
      */
-    this.Url = 'http://localhost:8080/hero/new';
+   
     console.log('in MemberService addMember '+JSON.stringify(member));
 
     let data = new FormData();
@@ -76,7 +78,7 @@ export class MemberService {
     data.append('dob',member_dob);
     data.append('dod',member_dod);
 
-    return this.http.post<T>(this.Url,data);
+    return this.http.post<T>(environment.apiUrl+'hero/new',data);
 
      /**
       * Previous inside subscribe

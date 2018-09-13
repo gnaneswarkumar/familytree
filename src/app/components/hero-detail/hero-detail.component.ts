@@ -78,7 +78,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
 
     this.memberService.getMember(id).subscribe(member=>{
       this.member = member[0];
-      this.wifeHusbandText = (this.member.member_gender == 'M') ? 'Wife' : 'Husband';
+      this.wifeHusbandText = (this.member.member_gender == 'M') ? 'Wife(s)' : 'Husband';
       console.log(this.member);
     });
 
