@@ -65,7 +65,7 @@
         <div class="card" *ngFor="let wife of member.member_wives">
           <div class="card-body text-center">
             <div class="card-text">
-              <a routerLink="/detail/{{wife[0].member_id}}">{{wife[0].member_name}}</a>
+              <a routerLink="/detail/{{wife.member_id}}">{{wife.member_name}}</a>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@
           <!--Hero Son details -->
           <h3 *ngIf="member.member_daughters.length">Daughters</h3>
           <div class="card-group" *ngIf="member.member_daughters.length">
-            <div class="card" *ngFor="let daughter of member.member_daughters[0]">
+            <div class="card" *ngFor="let daughter of member.member_daughters">
               <div class="card-body text-center">
                 <div class="card-text">
                   <a routerLink="/detail/{{daughter.member_id}}">{{daughter.member_name}}</a>

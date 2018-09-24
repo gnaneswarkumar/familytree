@@ -22,7 +22,8 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   @Input() hero:Hero;
   @Input() member;
 
-  fullImagePath:string = 'assets/images/img_avatar3.png';
+  imagePath:string = 'assets/images/';
+  fullImagePath:string = this.imagePath+'img_avatar3.png';
 
   isAdminUser$: Observable<boolean>;
 
@@ -79,6 +80,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     this.memberService.getMember(id).subscribe(member=>{
       this.member = member[0];
       this.wifeHusbandText = (this.member.member_gender == 'M') ? 'Wife(s)' : 'Husband';
+      this.fullImagePath = (this.member.member_gender=='M') ? this.imagePath+'img_male_avatar.png' : this.imagePath+'img_female_avatar.png';
       console.log(this.member);
     });
 
