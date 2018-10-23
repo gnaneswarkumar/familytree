@@ -82,7 +82,15 @@
                     <mat-datepicker #picker_dod></mat-datepicker>
                   </mat-form-field>
                 </div>
-              </div>  
+              </div> 
+              <div class="col">
+                <div class="form-group">
+                  <label for="profile_picture">Profile Picture</label>
+                  <!--https://www.youtube.com/watch?v=YkvqLNcJz3Y-->
+                  <input type="file" name="profile_picture" id="profile_picture" (change)="onProfilePicSelected($event)" />
+                  <button ng-click="angular.copy(files)" type="reset" id='reset_profile_picture' style="display:none;">Remove files</button>
+                </div>
+              </div> 
           </div>      
         </form>
         

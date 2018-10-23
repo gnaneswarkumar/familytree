@@ -13,6 +13,7 @@ import {MemberService} from '../../services/member.service';
   styleUrls: ['./member-form.component.css']
 })
 export class MemberFormComponent implements OnInit {
+  selectedProfilePicture: File = null;
 
   wivesMultiSelect = new FormControl();
 
@@ -39,11 +40,22 @@ export class MemberFormComponent implements OnInit {
   }
   /**
    * 
+   * @param event 
+   */
+  onProfilePicSelected(event){
+    //console.log(event);
+    this.selectedProfilePicture = <File>event.target.files[0];
+  }
+  /**
+   * 
    */
   saveFamilyMember() {
 
     this.submitted = true;
     //console.log(JSON.stringify(this.model));
+
+    this.model.profile_picture = this.selectedProfilePicture;
+
     this.memberService.addMember(this.model).subscribe(result => {
 
       var resKeys = Object.keys(result);
@@ -63,6 +75,9 @@ export class MemberFormComponent implements OnInit {
         } else if(key=='insert' && success=='success'){
           newMember = result[key];
           this.appendNewMember(newMember[0]);
+          document.getElementById('reset_profile_picture').click();
+          //angular.element("input[type='file']").val(null);
+
         }
       }
     });

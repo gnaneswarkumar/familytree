@@ -77,6 +77,7 @@ export class MemberService {
     data.append('wives',member.member_wives);
     data.append('dob',member_dob);
     data.append('dod',member_dod);
+    data.append('image',member.profile_picture, member.profile_picture.name);
 
     return this.http.post<T>(environment.apiUrl+'hero/new',data);
 

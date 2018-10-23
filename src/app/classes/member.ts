@@ -11,6 +11,7 @@ export class Member {
         public member_father? : number,
         public member_wives? : string,
         public member_dob? : string,
-        public member_dod? : string
+        public member_dod? : string,
+        public profile_picture? : any
       ){}
 }

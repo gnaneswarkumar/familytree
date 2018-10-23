@@ -8,7 +8,7 @@ export const environment = {
   apiUrl:'http://localhost:8080/'
 };
 /**
- * http://tattoocoder.com/angular-cli-using-the-environment-option/
+ * http://tattoocoder.com/angular-cli-using-the-environment-option/s
  */
 /*
  * In development mode, to ignore zone related error stack frames such as
