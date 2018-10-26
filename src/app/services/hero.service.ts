@@ -28,7 +28,7 @@ export class HeroService {
   { id: 20, name: 'Tornado' }
 ];*/
 
-private heroesUrl = 'api/heroes';  // URL to web api
+private heroesUrl = environment.apiUrl+'members';  // URL to web api
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -104,7 +104,7 @@ private heroesUrl = 'api/heroes';  // URL to web api
       return of([]);
     }
 
-    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    return this.http.get<Hero[]>(`${this.heroesUrl}?name=${term}`).pipe(
       tap(_ => this.log(`found heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );

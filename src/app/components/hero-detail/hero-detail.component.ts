@@ -11,6 +11,8 @@ import {HeroService} from '../../services/hero.service';
 import {UserService} from '../../services/user.service';
 import { MemberService } from '../../services/member.service';
 
+import {environment} from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -22,7 +24,8 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   @Input() hero:Hero;
   @Input() member;
 
-  imagePath:string = 'assets/images/';
+  //imagePath:string = 'assets/images/';
+  imagePath:string = environment.apiUrl+'images/profile/'; 
   fullImagePath:string = this.imagePath+'img_avatar3.png';
 
   isAdminUser$: Observable<boolean>;
@@ -80,7 +83,12 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
     this.memberService.getMember(id).subscribe(member=>{
       this.member = member[0];
       this.wifeHusbandText = (this.member.member_gender == 'M') ? 'Wife(s)' : 'Husband';
-      this.fullImagePath = (this.member.member_gender=='M') ? this.imagePath+'img_male_avatar.png' : this.imagePath+'img_female_avatar.png';
+      if(this.member.profile_picture){
+        this.fullImagePath = this.imagePath+this.member.profile_picture;
+      } else{
+        this.fullImagePath = (this.member.member_gender=='M') ? this.imagePath+'img_male_avatar.png' : this.imagePath+'img_female_avatar.png';
+      }
+      
       console.log(this.member);
     });
 

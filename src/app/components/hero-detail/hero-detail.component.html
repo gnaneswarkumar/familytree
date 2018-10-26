@@ -47,6 +47,7 @@
             <p class="card-text">
               <a routerLink="/detail/{{member.member_mother[0].member_id}}">{{member.member_mother[0].member_name}}</a>
             </p>
+            <img class="card-img-top card-img-family-member" *ngIf="member.member_mother[0].profile_picture"  src={{imagePath+member.member_mother[0].profile_picture}} alt="Card image">
           </div>
         </div>
         <div class="card" *ngIf="member.member_father.length">
@@ -55,6 +56,7 @@
             <p class="card-text">
               <a routerLink="/detail/{{member.member_father[0].member_id}}">{{member.member_father[0].member_name}}</a>
             </p>
+            <img class="card-img-top card-img-family-member" *ngIf="member.member_father[0].profile_picture"  src={{imagePath+member.member_father[0].profile_picture}} alt="Card image">
           </div>
         </div>
         </div>
@@ -67,6 +69,7 @@
             <div class="card-text">
               <a routerLink="/detail/{{wife.member_id}}">{{wife.member_name}}</a>
             </div>
+            <img class="card-img-top card-img-family-member" *ngIf="wife.profile_picture"  src={{imagePath+wife.profile_picture}} alt="Card image">
           </div>
         </div>
       </div>
@@ -78,8 +81,9 @@
               <div class="card" *ngFor="let son of member.member_sons">
                 <div class="card-body text-center">
                   <div class="card-text">
-                    <a routerLink="/detail/{{son.member_id}}">{{son.member_name}}</a>
+                    <a routerLink="/detail/{{son.member_id}}">{{son.member_name}}</a>                  
                   </div>
+                  <img class="card-img-top card-img-family-member" *ngIf="son.profile_picture" src={{imagePath+son.profile_picture}} alt="Card image">
                 </div>
               </div>
             </div>
@@ -92,6 +96,7 @@
                 <div class="card-text">
                   <a routerLink="/detail/{{daughter.member_id}}">{{daughter.member_name}}</a>
                 </div>
+                <img class="card-img-top card-img-family-member" *ngIf="daughter.profile_picture" src={{imagePath+daughter.profile_picture}} alt="Card image">
               </div>
             </div>
           </div>

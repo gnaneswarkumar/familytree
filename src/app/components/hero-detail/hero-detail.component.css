@@ -28,3 +28,7 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+.card-img-family-member{
+  width:50%;
+}
