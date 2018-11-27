@@ -38,6 +38,9 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material';
+import {MatTreeModule} from '@angular/material';
+import { TreeviewComponent } from './components/treeview/treeview.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,8 @@ import {MatSelectModule} from '@angular/material';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    TreeviewComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import {MatSelectModule} from '@angular/material';
   MatNativeDateModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTreeModule
   ],
   exports: [MatDatepickerModule,MatSelectModule],
   providers: [UserService,AuthGuard],
