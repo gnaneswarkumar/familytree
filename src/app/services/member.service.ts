@@ -46,6 +46,16 @@ export class MemberService {
       tap(),catchError(this.handleError('getFemaleMembersList',[]))
     );
   }
+
+  getTree():Observable<Member[]>{
+		this.messageService.add('MemberService: fetched tree');
+		 //return of(this.heroes);
+     return this.http.get<Member[]>(environment.apiUrl+'tree')
+     .pipe(
+      tap(heroes => this.log(`fetched tree`)),
+      catchError(this.handleError('getTree', []))
+    );
+  }
   
   /**
    * @param member 

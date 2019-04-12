@@ -34,11 +34,8 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
  */
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material';
-import {MatFormFieldModule} from '@angular/material';
-import {MatInputModule} from '@angular/material';
-import {MatSelectModule} from '@angular/material';
-import {MatTreeModule} from '@angular/material';
+
+import {MatTreeModule, MatSelectModule, MatInputModule, MatIconModule, MatFormFieldModule, MatNativeDateModule} from '@angular/material';
 import { TreeviewComponent } from './components/treeview/treeview.component';
 import { from } from 'rxjs';
 
@@ -73,9 +70,10 @@ import { from } from 'rxjs';
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
-  MatTreeModule
+  MatTreeModule,
+  MatIconModule
   ],
-  exports: [MatDatepickerModule,MatSelectModule],
+  exports: [MatDatepickerModule,MatSelectModule, MatIconModule],
   providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
 })
